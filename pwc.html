@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Pick Weights Calibrator
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="heading">
+        Pick Weights Calibrator
+    </div>
+    <div class="container">
+        <div class="leftpane">
+            <div class="inleft" id="l1" style="margin-top: 10px; height: 17%;" >
+                <form id="form1" class="form">
+                    <label>
+                        <span class="parameter">
+                            Pick before time
+                        </span>   
+                        <span class="equation">
+                            : \(y = \frac{w_1}{1+t}\)
+                        </span>
+                    </label>
+                    <br><br>
+                    <label class="weight" for="w1" >
+                        w<sub>1</sub> =
+                    </label>
+                    <input type="number" step="any" class="w" id="w1" value="1" />
+                    <label class="variable" for="v1">
+                        t =
+                    </label>
+                    <input type="number" step="any" class="v" id="v1" value="0" />
+                    <input type="submit" value="Update" class="button" />
+                    <span class="freeze">Freeze :</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="f" id="f1" onclick="draw()"/>
+                        <span class="toggler"></span>
+                    </label>
+                    <span class="enable">Enable :</span>
+                    <label class="switch">
+                        <input type="checkbox" class="e" id="e1" onclick="draw()" checked/>
+                        <span class="slider"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="inleft" id="l2">
+                <form id="form2" class="form">
+                    <label>
+                        <span class="parameter">
+                            Rack fulfillability
+                        </span>
+                        <span class="equation">
+                            : \(y = {w_2x}\)
+                        </span>
+                    </label>
+                    <br>
+                    <span class="parameter" style="font-size: 90%;font-style: italic;color: brown; ">
+                        x=%fulfillability
+                    </span>
+                    <br>
+                    <label class ="weight" for="w2" >
+                        w<sub>2</sub> =
+                    </label>
+                    <input type="number" step="any" class="w" id="w2" value="2" />
+                    <label class="variable" for="v2">
+                        x =
+                    </label>
+                    <input type="number" step="any" class="v" id="v2" value="0" />
+                    <input type="submit" value="Update" class="button" />
+                    <span class="freeze">Freeze :</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="f" id="f2" onclick="draw()"/>
+                        <span class="toggler"></span>
+                    </label>
+                    <span class="enable">Enable :</span>
+                    <label class="switch">
+                        <input type="checkbox" class="e" id="e2" onclick="draw()" checked/>
+                        <span class="slider"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="inleft" id="l3" style="height: 17%">
+                <form id="form3" class="form">
+                    <label>
+                        <span class="parameter">
+                            Client Priority
+                        </span>
+                        <span class="equation">
+                            : \(y = \frac{100-x}{100}w_3\)
+                        </span>
+                    </label>
+                    <br><br>
+                    <label class ="weight" for="w3" >
+                        w<sub>3</sub> =
+                    </label>
+                    <input type="number" step="any" class="w" id="w3" value="3" />
+                    <label class="variable" for="v3">
+                        x =
+                    </label>
+                    <input type="number" step="any" class="v" id="v3" value="0" />
+                    <input type="submit" value="Update" class="button" />
+                    <span class="freeze">Freeze :</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="f" id="f3" onclick="draw()"/>
+                        <span class="toggler"></span>
+                    </label>
+                    <span class="enable">Enable :</span>
+                    <label class="switch">
+                        <input type="checkbox" class="e" id="e3" onclick="draw()" checked/>
+                        <span class="slider"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="inleft" id="l4">
+                <form id="form4" class="form">
+                    <label>
+                        <span class="parameter">
+                            Distance
+                        </span>
+                        <span class="equation">
+                            : \(y = w_4x\)
+                        </span>
+                    </label>
+                    <br><br>
+                    <label class ="weight" for="w4" >
+                        w<sub>4</sub> =
+                    </label>
+                    <input type="number" step="any" class="w" id="w4" value="4" />
+                    <label class="variable" for="v4">
+                        x =
+                    </label>
+                    <input type="number" step="any" class="v" id="v4" value="0" />
+                    <input type="submit" value="Update" class="button" />
+                    <span class="freeze">Freeze :</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="f" id="f4" onclick="draw()"/>
+                        <span class="toggler"></span>
+                    </label>
+                    <span class="enable">Enable :</span>
+                    <label class="switch">
+                        <input type="checkbox" class="e" id="e4" onclick="draw()" checked/>
+                        <span class="slider"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="inleft" id="l5">
+                <form id="form5" class="form">
+                    <label>
+                        <span class="parameter">
+                            No. of Racks
+                        </span>
+                        <span class="equation">
+                            : \(y = w_5x\)
+                        </span>
+                    </label>
+                    <br><br>
+                    <label class ="weight" for="w5" >
+                        w<sub>5</sub> =
+                    </label>
+                    <input type="number" step="any" class="w" id="w5" value="5" />
+                    <label class="variable" for="v5">
+                        x =
+                    </label>
+                    <input type="number" step="any" class="v" id="v5" value="0" />
+                    <input type="submit" value="Update" class="button" />
+                    <span class="freeze">Freeze :</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="f" id="f5" onclick="draw()"/>
+                        <span class="toggler"></span>
+                    </label>
+                    <span class="enable">Enable :</span>
+                    <label class="switch">
+                        <input type="checkbox" class="e" id="e5" onclick="draw()" checked/>
+                        <span class="slider"></span>
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="rightpane" id="plot"></div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
